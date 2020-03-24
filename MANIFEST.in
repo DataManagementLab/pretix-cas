@@ -1,0 +1,3 @@
+recursive-include pretix_cas/static *
+recursive-include pretix_cas/templates *
+recursive-include pretix_cas/locale *

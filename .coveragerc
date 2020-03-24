@@ -1,0 +1,10 @@
+[run]
+omit =
+        pretix_cas/migrations/*
+        pretix_cas/locale/*
+        *__init__.py*
+        tests/*
+
+[report]
+exclude_lines=
+    pragma: no cover

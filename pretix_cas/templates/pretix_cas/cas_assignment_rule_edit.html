@@ -1,0 +1,25 @@
+{% extends "pretixcontrol/organizers/base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% block inner %}
+    {% if url_name == "team_assignment_rules.edit" %}
+        <h1>{% trans "Modify team assignment rule" %}</h1>
+        <p>{% trans "Use attributes from either &quot;groupMembership&quot; or &quot;ou&quot;. (For your own attributes see: " %}<a href="https://sso.tu-darmstadt.de/login?service=http://localhost">https://sso.tu-darmstadt.de/login?service=http://localhost</a>)</p>
+        <p>{% trans "An example for groupMembership would be: &quot;cn=central-it&quot;, for ou: &quot;FB20&quot;." %}</p>
+    {% else %}
+        <h1>{% trans "Create team assignment rule" %}</h1>
+        <p>{% trans "Use attributes from either &quot;groupMembership&quot; or &quot;ou&quot;. (For your own attributes see: " %}<a href="https://sso.tu-darmstadt.de/login?service=http://localhost">https://sso.tu-darmstadt.de/login?service=http://localhost</a>)</p>
+        <p>{% trans "An example for groupMembership would be: &quot;cn=central-it&quot;, for ou: &quot;FB20&quot;." %}</p>
+    {% endif %}
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}
+        {% bootstrap_field form.team layout="control" %}
+        {% bootstrap_field form.attribute layout="control" %}
+        <div class="form-group submit-group">
+            <button type="submit" class="btn btn-primary btn-save">
+                {% trans "Save" %}
+            </button>
+        </div>
+    </form>
+{% endblock %}
