@@ -7,7 +7,14 @@ This is a plugin for [pretix] that provides a [pluggable authentication backend]
 It also allows you to create rules that automatically assign users to teams based upon the attributes provided by the SSO Server.
 
 ## Table of contents
-[[_TOC_]]
+* [Usage](#usage)
+    + [Login](#login)
+    + [Team assignment rules](#team-assignment-rules)
+* [Supported types of team assignment rules](#supported-types-of-team-assignment-rules)
+* [General remarks](#general-remarks)
+* [Installation](#installation)
+* [Development setup](#development-setup)
+* [License](#license)
 
 ## Usage
 
