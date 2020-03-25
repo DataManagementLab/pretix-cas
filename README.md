@@ -78,7 +78,7 @@ To check your own attributes go to: [https://sso.tu-darmstadt.de/login?service=h
    ; Activate both the CAS authentication backend and the Native authentication backend
    auth_backends=pretix.base.auth.NativeAuthBackend,pretix_cas.auth_backend.CasAuthBackend
    ```
-5. This plugins uses the TU Darmstadt CAS server by default. The default configuration can be overriden by adding a
+5. This plugin uses the TU Darmstadt CAS server by default. The default configuration can be overriden by adding a
    `[pretix_cas]` section to the [pretix configuration file]. The configuration for the example.org CAS server looks
    like this:
    ```ini
@@ -100,7 +100,7 @@ To check your own attributes go to: [https://sso.tu-darmstadt.de/login?service=h
 4. Execute ``python setup.py develop`` within this directory to register this application with pretix's plugin registry.
 5. Execute ``make`` within this directory to compile translations.
 6. Create a [pretix configuration file] with at least the following in it:
-   ```
+   ```ini
    [pretix]
    auth_backends=pretix.base.auth.NativeAuthBackend,pretix_cas.auth_backend.CasAuthBackend
    ```
@@ -108,7 +108,7 @@ To check your own attributes go to: [https://sso.tu-darmstadt.de/login?service=h
    
 ## License
 
-Copyright 2019 - 2020, Gruppe 45 Bachelorprojekt 2019/2020
+Copyright 2019 - 2020, Gruppe 45 Bachelorpraktikum 2019/2020
 
 Released under the terms of the Apache License 2.0
 
