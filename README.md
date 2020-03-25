@@ -1,7 +1,6 @@
 # Pretix CAS SSO Plugin
 
-[![pipeline status](https://git.rwth-aachen.de/bp45/pretix-hrz-sso-plugin/badges/master/pipeline.svg)](https://git.rwth-aachen.de/bp45/pretix-hrz-sso-plugin/commits/master)
-[![coverage report](https://git.rwth-aachen.de/bp45/pretix-hrz-sso-plugin/badges/master/coverage.svg)](https://git.rwth-aachen.de/bp45/pretix-hrz-sso-plugin/commits/master)
+![CI](https://github.com/DataManagementLab/pretix-cas/workflows/CI/badge.svg)
 
 This is a plugin for [pretix] that provides a [pluggable authentication backend] for [Apereo CAS] SSO servers.
 
