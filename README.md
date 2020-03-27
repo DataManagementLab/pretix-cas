@@ -108,7 +108,7 @@ To check your own attributes go to: [https://sso.tu-darmstadt.de/login?service=h
    
 ## License
 
-Copyright 2019 - 2020, Gruppe 45 Bachelorpraktikum 2019/2020
+Copyright 2019 - 2020, Benjamin Hättasch and TU Darmstadt Bachelorpraktikum 2019/2020 Group 45
 
 Released under the terms of the Apache License 2.0
 

@@ -23,13 +23,13 @@ cmdclass = {
 
 setup(
     name='pretix-cas',
-    version='0.9.1',
+    version='1.0.0',
     description='Apereo CAS authentication backend for pretix',
     long_description=long_description,
     long_description_content_type='text/markdown',
 
     url='https://github.com/DataManagementLab/pretix-cas',
-    author='BP 2019/20 Gruppe 45',
+    author='Benjamin Haettasch & TU Darmstadt BP Informatik 2019/20 Group 45',
     author_email='benjamin.haettasch@cs.tu-darmstadt.de',
 
     license='Apache Software License',
@@ -38,7 +38,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Environment :: Web Environment',
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
     ],
 
     install_requires=['python-cas>=1.5.0'],
