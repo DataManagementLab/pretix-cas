@@ -141,10 +141,21 @@ def __create_new_user_from_cas_data(cas_response, locale, timezone):
     #    'authenticationMethod': 'LdapAuthenticationHandler', 'surname': 'Doe'
     #   }, None)
     user_info = cas_response[1]
+
+    # email attribute is always required
     email = user_info['mail']
-    given_name = user_info['givenName']
-    surname = user_info['surname']
-    fullname = '%s %s' % (given_name, surname)
+
+    # Try to determine a name
+    if "fullName" in user_info:
+        fullname = user_info['fullName']
+    elif "given_name" in user_info and "surname" in user_info:
+        fullname = '%s, %s' % (user_info['surname'], user_info['givenName'])
+    elif "surname" in user_info:
+        fullname = user_info['surname']
+    elif "givenName" in user_info:
+        fullname = user_info['givenName']
+    else:
+        fullname = ""
 
     created_user = User.objects.create(
         email=email,
