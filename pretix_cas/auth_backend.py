@@ -23,7 +23,7 @@ class CasAuthBackend(BaseAuthBackend):
     """
     @property
     def verbose_name(self):
-        return config.get('pretix_cas', 'sso_server_name', fallback=_('TU Darmstadt HRZ SSO'))
+        return config.get('pretix_cas', 'cas_server_name', fallback=_('CAS SSO'))
 
     def request_authenticate(self, request):
         """
