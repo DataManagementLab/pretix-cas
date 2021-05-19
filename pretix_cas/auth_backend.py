@@ -2,8 +2,8 @@ import cas
 from django.utils.translation import ugettext_lazy as _
 
 from pretix.base.auth import BaseAuthBackend
-from pretix.settings import config
 from pretix.helpers.urls import build_absolute_uri
+from pretix.settings import config
 
 
 class CasAuthBackend(BaseAuthBackend):
