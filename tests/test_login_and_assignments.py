@@ -1,4 +1,6 @@
 import pytest
+from django.test import override_settings
+
 from pretix_cas import views, auth_backend
 from pretix_cas.models import CasAttributeTeamAssignmentRule
 from rest_framework.reverse import reverse
@@ -36,21 +38,24 @@ def env():
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_successful_user_creation(env, client):
     login_mock(fake_cas_data, client)
     created_user = get_user(fake_cas_data)
     assert created_user.email == fake_cas_data[1]['mail']
-    assert created_user.get_full_name() == fake_cas_data[1]['givenName'] + " " + fake_cas_data[1]['surname']
+    assert created_user.get_full_name() == f"{fake_cas_data[1]['surname']}, {fake_cas_data[1]['givenName']}"
     assert created_user.auth_backend == auth_backend.CasAuthBackend.identifier
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_failed_user_creation(env, client):
     login_mock((None, None, None), client)
     assert User.objects.count() == 0
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_login_with_weird_cas_attribute_list_response(env, client):
     team1 = env[0]
     CasAttributeTeamAssignmentRule.objects.create(attribute='FB20', team=team1)
@@ -86,6 +91,7 @@ def test_login_with_weird_cas_attribute_list_response(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_auto_assign_ou_rules(env, client):
     expected_team = env[0]
 
@@ -99,6 +105,7 @@ def test_auto_assign_ou_rules(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_auto_assign_group_membership_rules(env, client):
     central_it_team = env[0]
     admin_team = env[1]
@@ -118,6 +125,7 @@ def test_auto_assign_group_membership_rules(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_auto_assign_both(env, client):
     central_it_team = env[0]
     admin_team = env[1]
@@ -139,6 +147,7 @@ def test_auto_assign_both(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_auto_assign_group_membership_rules_second_login(env, client):
     central_it_team = env[0]
     employee_team = env[2]
@@ -162,6 +171,7 @@ def test_auto_assign_group_membership_rules_second_login(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_add_rules_in_settings(env, client):
     organizer = Organizer.objects.first()
     central_it = env[0]
@@ -197,6 +207,7 @@ def test_add_rules_in_settings(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_add_ou_rule_in_settings(env, client):
     organizer = Organizer.objects.first()
     central_it = env[0]
@@ -224,6 +235,7 @@ def test_add_ou_rule_in_settings(env, client):
 
 
 @pytest.mark.django_db
+@override_settings(PRETIX_AUTH_BACKENDS=['pretix_cas.auth_backend.CasAuthBackend'])
 def test_add_ou_rule_in_settings(env, client):
     organizer = Organizer.objects.first()
     central_it = env[0]
