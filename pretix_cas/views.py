@@ -149,7 +149,7 @@ def __create_new_user_from_cas_data(cas_response, locale, timezone):
     # Try to determine a name
     if "fullName" in user_info:
         fullname = user_info['fullName']
-    elif "given_name" in user_info and "surname" in user_info:
+    elif "givenName" in user_info and "surname" in user_info:
         fullname = '%s, %s' % (user_info['surname'], user_info['givenName'])
     elif "surname" in user_info:
         fullname = user_info['surname']
