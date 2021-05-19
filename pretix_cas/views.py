@@ -13,6 +13,7 @@ from pretix.base.models import Team, User
 from pretix.control.permissions import OrganizerPermissionRequiredMixin
 from pretix.control.views.auth import process_login
 from pretix.helpers.urls import build_absolute_uri
+from pretix.settings import config
 
 from . import auth_backend
 from .forms import CasAssignmentRuleForm
@@ -55,7 +56,7 @@ def __verify_cas(request):
     # The CASClient is created on every request because the domain of the pretix instance is not fixed.
     cas_client = cas.CASClient(
         version='CAS_2_SAML_1_0',
-        server_url='https://sso.tu-darmstadt.de',
+        server_url=config.get('pretix_cas', 'cas_server_url', fallback='https://sso.tu-darmstadt.de'),
         service_url=return_address
     )
     ticket = request.GET.get('ticket')
