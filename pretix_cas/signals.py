@@ -1,6 +1,6 @@
 from django.dispatch import receiver
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from pretix.control.permissions import organizer_permission_required
 from pretix.control.signals import nav_organizer

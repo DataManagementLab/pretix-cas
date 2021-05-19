@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import gettext_lazy as _
 
 from pretix.base.plugins import PluginConfig
 
@@ -8,9 +8,9 @@ class PluginApp(PluginConfig):
     verbose_name = 'Apereo CAS authentication backend for pretix'
 
     class PretixPluginMeta:
-        name = ugettext_lazy('CAS backend')
+        name = _('CAS backend')
         author = 'BP 2019/20 Gruppe 45'
-        description = ugettext_lazy('Enables users to log into Pretix using Apereo CAS SSO servers')
+        description = _('Enables users to log into Pretix using Apereo CAS SSO servers')
         visible = True
         version = '0.9.1'
         compatibility = "pretix>=3.4.0"
