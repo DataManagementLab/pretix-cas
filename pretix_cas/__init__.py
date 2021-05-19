@@ -9,10 +9,10 @@ class PluginApp(PluginConfig):
 
     class PretixPluginMeta:
         name = _('CAS backend')
-        author = 'BP 2019/20 Gruppe 45'
+        author = 'Benjamin Haettasch & TU Darmstadt BP Informatik 2019/20 Group 45'
         description = _('Enables users to log into Pretix using Apereo CAS SSO servers')
         visible = True
-        version = '0.9.1'
+        version = '1.2.0'
         compatibility = "pretix>=3.4.0"
 
     def ready(self):

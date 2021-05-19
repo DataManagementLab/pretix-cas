@@ -23,7 +23,7 @@ cmdclass = {
 
 setup(
     name='pretix-cas',
-    version='1.1.0',
+    version='1.2.0',
     description='Apereo CAS authentication backend for pretix',
     long_description=long_description,
     long_description_content_type='text/markdown',
