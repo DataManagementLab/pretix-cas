@@ -1,5 +1,4 @@
 import os
-from distutils.command.build import build
 
 from setuptools import find_packages, setup
 
@@ -10,16 +9,6 @@ except:
     long_description = ''
 
 
-class CustomBuild(build):
-    def run(self):
-        from django.core import management
-        management.call_command('compilemessages', verbosity=1)
-        build.run(self)
-
-
-cmdclass = {
-    'build': CustomBuild
-}
 
 setup(
     name='pretix-cas',
@@ -44,7 +33,6 @@ setup(
     install_requires=['python-cas>=1.5.0', 'Django>=4.0'],
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
-    cmdclass=cmdclass,
     entry_points="""
 [pretix.plugin]
 pretix_cas=pretix_cas:PretixPluginMeta
