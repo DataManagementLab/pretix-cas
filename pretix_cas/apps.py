@@ -15,7 +15,7 @@ class PluginApp(PluginConfig):
         description = _('Enables users to log into Pretix using Apereo CAS SSO servers')
         visible = True
         version = '1.3.0a'
-        compatibility = "pretix>=2025.10.2"
+        compatibility = "pretix>=2024.7.0"
 
     def ready(self):
         from . import signals  # NOQA
