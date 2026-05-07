@@ -97,7 +97,7 @@ To check your own attributes go to: [https://sso.tu-darmstadt.de/login?service=h
 1. Make sure that you have a working [pretix development setup].
 2. Clone this repository, e.g. to ``local/pretix-cas``.
 3. Activate the virtual environment you use for pretix development.
-4. Execute ``python setup.py develop`` within this directory to register this application with pretix's plugin registry.
+4. Execute ``pip install -e .`` within this directory to register this application with pretix's plugin registry.
 5. Execute ``make`` within this directory to compile translations.
 6. Create a [pretix configuration file] with at least the following in it:
    ```ini
@@ -108,7 +108,7 @@ To check your own attributes go to: [https://sso.tu-darmstadt.de/login?service=h
    
 ## License
 
-Copyright 2019 - 2020, Benjamin Hättasch and TU Darmstadt Bachelorpraktikum 2019/2020 Group 45
+Copyright 2019 - 2026, Benjamin Hättasch and TU Darmstadt Bachelorpraktikum 2019/2020 Group 45
 
 Released under the terms of the Apache License 2.0
 

@@ -1,7 +1,6 @@
 import os
 from distutils.command.build import build
 
-from django.core import management
 from setuptools import find_packages, setup
 
 try:
@@ -13,6 +12,7 @@ except:
 
 class CustomBuild(build):
     def run(self):
+        from django.core import management
         management.call_command('compilemessages', verbosity=1)
         build.run(self)
 
@@ -23,7 +23,7 @@ cmdclass = {
 
 setup(
     name='pretix-cas',
-    version='1.2.0',
+    version='1.3.0a',
     description='Apereo CAS authentication backend for pretix',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -41,7 +41,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
     ],
 
-    install_requires=['python-cas>=1.5.0'],
+    install_requires=['python-cas>=1.5.0', 'Django>=4.0'],
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
     cmdclass=cmdclass,
