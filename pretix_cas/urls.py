@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('cas_login', views.return_from_sso, name='cas.response'),
-    path('^control/organizer/<str:organizer>/teams/assignment_rules', views.AssignmentRulesList.as_view(),
+    path('control/organizer/<str:organizer>/teams/assignment_rules', views.AssignmentRulesList.as_view(),
         name='team_assignment_rules'),
     path('control/organizer/<str:organizer>/teams/assignment_rules/add', views.AssignmentRuleCreate.as_view(),
         name='team_assignment_rules.add'),
